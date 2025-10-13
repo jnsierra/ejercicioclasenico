@@ -1,11 +1,17 @@
-# Usa una imagen base ligera de Alpine Linux
-FROM alpine:latest
+# Imagen base
+FROM python:3.10-slim
 
-# instalar una libreria v1
+# Establece el directorio de trabajo
+WORKDIR /app
 
-# descargar un archivo de internet
+# Copia el script al contenedor
+COPY app.py .
 
-#cambiar de nombre un archivo
+# Instala Flask
+RUN pip install flask
 
-# Comando por defecto al ejecutar el contenedor
-CMD echo "Hola Mundo"
+# Expone el puerto en el que correrá la app
+EXPOSE 3000
+
+# Comando por defecto para ejecutar la app
+CMD ["python", "app.py"]
