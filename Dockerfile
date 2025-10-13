@@ -1,7 +1,5 @@
 # Imagen base
-FROM python:3.14-slim
-
-RUN addgroup --system appgroup && adduser --system --group appuser
+FROM adonispaz9506/holamundobase:1
 
 
 # Establece el directorio de trabajo
