@@ -74,7 +74,7 @@ data:
 
 ---
 apiVersion: autoscaling/v2beta2
-kind: HorizontalPodautoscaler
+kind: HorizontalPodAutoscaler
 metadata:
   name: mi-hpa
   namespace: adonis
