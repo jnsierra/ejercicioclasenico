@@ -73,8 +73,8 @@ data:
   PASSWORD: aG9sYQ==
 
 ---
-apiVersion: autoscaling/v2
-kind: horizontalpodautoscalers
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodautoscaler
 metadata:
   name: mi-hpa
   namespace: adonis
