@@ -28,6 +28,13 @@ spec:
           image: adonispaz9506/hola-mundo-clase123:4  # <-- Reemplaza con la imagen que quieras usar
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "800Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1500Mi"
           envFrom:
             - configMapRef:
                 name: mi-configmap
