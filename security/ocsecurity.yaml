@@ -24,7 +24,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cicd-binding-rbac
-  namespace: adonis-paz-dev
+  namespace: nicolas-sierra-dev
 subjects:
   - kind: ServiceAccount
     name: cicd-serviceaccount # La cuenta de servicio que creamos
