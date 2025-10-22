@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: contenedor-principal
-          image: adonispaz9506/hola-mundo-clase123:4  # <-- Reemplaza con la imagen que quieras usar
+          image: adonispaz9506/hola-mundo-clase123:build-{{tag}} # <-- Reemplaza con la imagen que quieras usar
           ports:
             - containerPort: 3000
           resources:
@@ -38,15 +38,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mi-servicio
-  namespace: adonis-paz-dev  # Asegúrate de que coincida con tu Deployment
+  namespace: adonis-paz-dev # Asegúrate de que coincida con tu Deployment
 spec:
   selector:
-    app: mi-app  # Debe coincidir con las labels del Deployment
+    app: mi-app # Debe coincidir con las labels del Deployment
   ports:
     - protocol: TCP
-      port: 4000        # Puerto del Service
-      targetPort: 3000  # Puerto del contenedor
-  type: ClusterIP     # Cambia a NodePort o LoadBalancer si quieres acceso externo
+      port: 4000 # Puerto del Service
+      targetPort: 3000 # Puerto del contenedor
+  type: ClusterIP # Cambia a NodePort o LoadBalancer si quieres acceso externo
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -79,9 +79,9 @@ spec:
   minReplicas: 2
   maxReplicas: 5
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 100
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 100
