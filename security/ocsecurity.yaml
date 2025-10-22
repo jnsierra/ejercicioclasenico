@@ -4,17 +4,17 @@ metadata:
   # El nombre que usarás para referenciar esta ServiceAccount
   name: cicd-serviceaccount
   # Opcional: El namespace donde se creará. Si se omite, se usará 'default'.
-  namespace: adonis-paz-dev
+  namespace: nicolas-sierra-dev
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cicd-binding
-  namespace: adonis-paz-dev
+  namespace: nicolas-sierra-dev
 subjects:
   - kind: ServiceAccount
     name: cicd-serviceaccount # La cuenta de servicio que creamos
-    namespace: adonis-paz-dev
+    namespace: nicolas-sierra-dev
 roleRef:
   kind: ClusterRole
   name: admin # El rol que creamos
