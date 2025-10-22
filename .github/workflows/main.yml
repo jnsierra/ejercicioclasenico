@@ -55,5 +55,4 @@ jobs:
 
       - name: Deploy files
         run: |
-          oc project nicolas-sierra-dev
           oc apply -f oc.yaml
