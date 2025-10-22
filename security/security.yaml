@@ -1,17 +1,14 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  # El nombre que usarás para referenciar esta ServiceAccount
   name: nico-serviceaccount
-  # Opcional: El namespace donde se creará. Si se omite, se usará 'default'.
-  namespace: nico
+  namespace: nicolas-sierra-dev # Cambiado de "nico" a tu namespace
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: dashboard-nico
-  # Este rol existirá en el namespace del proyecto
-  namespace: nico
+  namespace: nicolas-sierra-dev # Cambiado de "nico" a tu namespace
 rules:
   - apiGroups:
       [
@@ -56,34 +53,13 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: nico-dashboard-readonly-binding
-  namespace: nico
+  namespace: nicolas-sierra-dev # Cambiado de "nico" a tu namespace
 subjects:
   - kind: ServiceAccount
-    name: nico-serviceaccount # La cuenta de servicio que creamos
-    namespace: nico
+    name: nico-serviceaccount
+    namespace: nicolas-sierra-dev # Cambiado de "nico" a tu namespace
 roleRef:
   kind: Role
-  name: dashboard-nico # El rol que creamos
+  name: dashboard-nico
   apiGroup: rbac.authorization.k8s.io
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: global-reader
-rules:
-  - apiGroups: [""]
-    resources: ["namespaces"]
-    verbs: ["get", "list"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: nico-global-readonly-binding
-subjects:
-  - kind: ServiceAccount
-    name: nico-serviceaccount # La cuenta de servicio que creamos
-    namespace: nico
-roleRef:
-  kind: ClusterRole
-  name: global-reader # El rol que creamos
-  apiGroup: rbac.authorization.k8s.io
+# Eliminar ClusterRole y ClusterRoleBinding si no tienes permisos de administrador
