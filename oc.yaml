@@ -36,11 +36,11 @@ spec:
           volumenMounts:
             - name: datos
               mountPath: /app/data
-        volumes:
+      volumes:
         - name: datos
           persistentVolumeClaim:
             claimName: mi-pvc
-          
+
 ---
 apiVersion: v1
 kind: Service
