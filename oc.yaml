@@ -33,9 +33,9 @@ spec:
                 name: mi-configmap
             - secretRef:
                 name: mi-secret
-          volumenMounts:
+          volumeMounts:
             - name: datos
-              mountPath: /app/data
+              mountPath: "/app/data"
       volumes:
         - name: datos
           persistentVolumeClaim:
