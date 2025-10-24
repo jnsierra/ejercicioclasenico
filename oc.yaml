@@ -82,7 +82,7 @@ metadata:
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
-    kind: deployment
+    kind: Deployment
     name: mi-deployment
   minReplicas: 2
   maxReplicas: 5
