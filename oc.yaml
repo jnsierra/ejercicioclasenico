@@ -103,7 +103,7 @@ metadata:
   namespace: nicolas-sierra-dev
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
