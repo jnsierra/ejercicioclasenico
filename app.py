@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return 'Hola Mundo Primer Microservicio 001', 200
+    return 'Hola Mundo Primer Microservicio 002', 200
 
 @app.route('/startup', methods=['GET'])
 def startup():
