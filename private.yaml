@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-microservicio-1-to-microservicio-2-ingress
+  namespace: nicolas-sierra-dev
+spec:
+  podSelector:
+    matchLabels:
+      app: microservicio-1 # Aplica esta política a los pods etiquetados como micro-b
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: microservicio-2 # Permite solo el tráfico proveniente de micro-a
+      ports:
+        - protocol: TCP
+          port: 3000
